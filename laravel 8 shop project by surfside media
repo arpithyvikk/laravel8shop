@@ -1,0 +1,10 @@
+Date : 18 jan, 2022
+	part 1 : project layout and setup using livewire and component
+	part 2 : create shop, cart and checout page using livewire and component(include template pages)
+	part 3 : user and admin authentication using jetstream or livewire
+
+Date : 19 jan, 2022
+	part 4 : change the login and registration page (defualt to template pages) with validation 
+	part 5 : making shop page and pagination (category and product, model, seed, Factory) 
+	part 6 : create product detail page (popular product, related profuct)
+	part 7 : shopping cart (composer hardevine/shoppingcart, vendor:publish Gloudemans\ShoppingcartServiceProvider) is pedding becuase of  wire:click evnet is not working

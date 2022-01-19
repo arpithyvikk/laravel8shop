@@ -12,9 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
+	@livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -172,19 +174,19 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{ url('/')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="shop" class="link-term mercado-item-title">Shop</a>
+									<a href="{{ url('shop')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="cart" class="link-term mercado-item-title">Cart</a>
+									<a href="{{url('cart')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="checkout" class="link-term mercado-item-title">Checkout</a>
+									<a href="{{url('checkout')}}" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item">
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
@@ -462,5 +464,6 @@
 	<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('assets/js/functions.js') }}"></script>
+	@livewireScripts
 </body>
 </html>
