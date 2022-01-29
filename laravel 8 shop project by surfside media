@@ -7,4 +7,11 @@ Date : 19 jan, 2022
 	part 4 : change the login and registration page (defualt to template pages) with validation 
 	part 5 : making shop page and pagination (category and product, model, seed, Factory) 
 	part 6 : create product detail page (popular product, related profuct)
-	part 7 : shopping cart (composer hardevine/shoppingcart, vendor:publish Gloudemans\ShoppingcartServiceProvider) is pedding becuase of  wire:click evnet is not working
+	part 7 : shopping cart (composer hardevine/shoppingcart, vendor:publish Gloudemans\ShoppingcartServiceProvider)
+
+Date : 29 jan, 2022
+	part 8 : Update cart item like inscrease or decrease product with price (using CartComponent)
+	part 9 : delete cart item and empty cart (using CartComponent)
+	part 10: product sorting and product show in one page (using ShopComponent)
+	part 11: show products by category (using CategoryComponent)
+	part 12: search product (display category name : 'HeaderSearchComponent, function.js' and for search : 'SearchComponent';)
