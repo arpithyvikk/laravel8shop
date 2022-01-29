@@ -1,3 +1,3 @@
 <div>
-    <h1>admin </h1>
+    <h1>Admin</h1>
 </div>

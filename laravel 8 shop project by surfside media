@@ -15,3 +15,4 @@ Date : 29 jan, 2022
 	part 10: product sorting and product show in one page (using ShopComponent)
 	part 11: show products by category (using CategoryComponent)
 	part 12: search product (display category name : 'HeaderSearchComponent, function.js' and for search : 'SearchComponent';)
+	part 13: create Admin Category  table Page (admin/AdminCategoryComponent)
