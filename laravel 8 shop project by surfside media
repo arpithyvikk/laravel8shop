@@ -25,4 +25,4 @@ DAte : 31 jan, 2022
 	part 18: create product page(admin/AdminAddProductComponent)
 	part 19: edit product page (admin/AdminEditProductomponent)
 	part 20: delete product (admin/AdminProductComponent)
-	part 21: 
+	part 21: home page slider make it dynamic (admin/Admin['','add','edit']HomeSliderComponent)

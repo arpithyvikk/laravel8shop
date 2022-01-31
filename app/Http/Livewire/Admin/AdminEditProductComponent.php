@@ -71,6 +71,7 @@ class AdmineditProductComponent extends Component
         $product->quantity = $this->quantity;
         if($this->newimage)
         {
+            File::delete(public_path('assets/images/products/'.$product->image));
             $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
