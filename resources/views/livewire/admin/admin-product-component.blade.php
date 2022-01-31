@@ -5,10 +5,10 @@
                 <div class="panel panel-defualt">
                     <div class="panel-heanding">
                         <div class="col-md-6">
-                            All Categories
+                            All Products
                         </div>
                         <div class="col-md-6">
-                            <a href="{{route('admin.addcategory')}}" class="btn btn-danger btn-sm pull-right">Add Category</a>
+                            <a href="{{route('admin.addproduct')}}" class="btn btn-danger btn-sm pull-right">Add Product</a>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -23,28 +23,36 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Category Name</th>
-                                    <th>Slug</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($products as $product)
                                     <tr>
-                                        <td>{{$category->id}}</td>
-                                        <td>{{$category->name}}</td>
-                                        <td>{{$category->slug}}</td>
+                                        <td>{{$product->id}}</td>
+                                        <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60" /></td>
+                                        <td>{{$product->name}}</td>
+                                        <td>{{$product->stock_status}}</td>
+                                        <td>{{$product->regular_price}}</td>
+                                        <td>{{$product->category->name}}</td>
+                                        <td>{{$product->created_at}}</td>
                                         <td>
-                                           <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit fa-2x text-warning"></i></a>
+                                           <a href="{{route('admin.editproduct',['product_slug'=>$product->slug])}}"><i class="fa fa-edit fa-2x text-warning"></i></a>
                                             &nbsp;
-                                           <a href="#" wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                           <a href="#" wire:click.prevent="deleteProduct({{$product->id}})"><i class="fa fa-times fa-2x text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                          </table>
                          <div class="wrap-pagination-info">
-                            {{ $categories->links() }}
+                            {{ $products->links() }}
                             {{-- <ul class="page-numbers">
                                 <li><span class="page-number-item current" >1</span></li>
                                 <li><a class="page-number-item" href="#" >2</a></li>

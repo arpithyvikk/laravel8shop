@@ -7180,7 +7180,7 @@ background-color: #888888;
 .bg-white {
     color: white;
     margin: 2px;
-    background-color: #ff2832 !important;
+    background-color: #f72732 !important;
     font: 14px bold, "ARIAL";
 }
 
@@ -7221,10 +7221,29 @@ p.text-sm.text-gray-700.leading-5 {
 }
 
 .items-center a:focus {
-    color: black;
+    color: white;
+    font-weight: bold;
 }
 .items-center a:hover {
-    color: black;
-    font-size: 16px;
+    color: white;
+    font-size: 14px;
     font-weight: bold;
+}
+
+.btn {
+    border-radius: 0px!important;
+    filter: contrast(1.3)!important;
+
+}
+
+.btn:focus{
+    border:none!important;
+    outline: none!important;
+}
+
+.fa{
+    filter: contrast(1.3) brightness(1.5)!important;
+}
+.fa:hover{
+    filter: contrast(1) brightness(1)!important;
 }

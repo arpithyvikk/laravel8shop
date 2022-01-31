@@ -15,4 +15,14 @@ Date : 29 jan, 2022
 	part 10: product sorting and product show in one page (using ShopComponent)
 	part 11: show products by category (using CategoryComponent)
 	part 12: search product (display category name : 'HeaderSearchComponent, function.js' and for search : 'SearchComponent';)
-	part 13: create Admin Category  table Page (admin/AdminCategoryComponent)
+	part 13: display Admin Category table Page (admin/AdminCategoryComponent)
+
+DAte : 31 jan, 2022
+	part 14: create category page  (admin/AdminAddCategoryComponent)
+	part 15: edit category page (admin/AdminEditCategoryComponent)
+	part 16: delete category (admin/AdminCategoryComponent)
+	part 17: display products table page (admin/AdminProductComponent, 'change the file store path : filesystems.php')
+	part 18: create product page(admin/AdminAddProductComponent)
+	part 19: edit product page (admin/AdminEditProductomponent)
+	part 20: delete product (admin/AdminProductComponent)
+	part 21: 
