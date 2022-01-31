@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use session;
 class AuthAdmin
 {
     /**
@@ -22,8 +22,8 @@ class AuthAdmin
         }
         else
         {
-            session()->get('utype');
-            // return redirect()->route('login');
+            session()->flush();
+            return redirect()->route('login');
         }
         return $next($request);
     }

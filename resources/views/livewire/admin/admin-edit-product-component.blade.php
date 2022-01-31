@@ -67,8 +67,8 @@
                                     <label for="" class="col-md-4 control-label">Stock Status</label>
                                     <div class="col-md-4">
                                         <select class="form-control" wire:model="stock_status">
-                                            <option value="instock">InStock</option>
-                                            <option value="outstock">Out of Stock</option>
+                                            <option value="instock" {{$stock_status == 'instock' ? 'selected' : ''}}>InStock</option>
+                                            <option value="outstock" {{$stock_status == 'outstock' ? 'selected' : ''}}>Out of Stock</option>
                                         </select>
                                     </div>
                                 </div>
@@ -76,8 +76,8 @@
                                     <label for="" class="col-md-4 control-label">Featured</label>
                                     <div class="col-md-4">
                                         <select class="form-control" wire:model="featured">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
+                                            <option value="0" {{$featured == 0 ? 'selected' : ''}}>No</option>
+                                            <option value="1"  {{$featured == 1 ? 'selected' : ''}}>Yes</option>
                                         </select>
                                     </div>
                                 </div>

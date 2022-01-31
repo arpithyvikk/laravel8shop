@@ -48,7 +48,7 @@
 									@auth
 										@if (Auth::user()->utype === 'AMD')
 											<li class="menu-item menu-item-has-children parent" >
-												<a href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a href="#">My Account{{session()->get('utpe');}} ({{Auth::user()->utype}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a href="{{ route('admin.dashboard') }}">Dashboard</a>
