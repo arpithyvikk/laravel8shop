@@ -7247,3 +7247,6 @@ p.text-sm.text-gray-700.leading-5 {
 .fa:hover{
     filter: contrast(1) brightness(1)!important;
 }
+.noUi-connect {
+    background: #f72732!important;
+}

@@ -17,7 +17,7 @@ Date : 29 jan, 2022
 	part 12: search product (display category name : 'HeaderSearchComponent, function.js' and for search : 'SearchComponent';)
 	part 13: display Admin Category table Page (admin/AdminCategoryComponent)
 
-DAte : 31 jan, 2022
+Date : 31 jan, 2022
 	part 14: create category page  (admin/AdminAddCategoryComponent)
 	part 15: edit category page (admin/AdminEditCategoryComponent)
 	part 16: delete category (admin/AdminCategoryComponent)
@@ -26,5 +26,11 @@ DAte : 31 jan, 2022
 	part 19: edit product page (admin/AdminEditProductomponent)
 	part 20: delete product (admin/AdminProductComponent)
 	part 21: home slider page slider make it dynamic (admin/Admin['','add','edit']HomeSliderComponent, HomeComponent)
-	part 22: Show latest product on home page (admin/HomeComponent)
+	part 22: show latest product on home page (admin/HomeComponent)
 	
+Date : 1 feb, 2022
+	part 23: admin show product categories on home page (HomeComponent)
+	part 24: admin show sale products on home page (HomeComponent)
+	part 25: admin make on sale timer () 
+	Some customization on project like: (change in all pages: 'sale label', 'product price', 'add to cart', 'cart price (1 bug product price is not change after sale is over)')
+	part 26: add price filter on shop and category page

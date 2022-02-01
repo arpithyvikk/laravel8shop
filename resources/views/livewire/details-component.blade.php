@@ -1,6 +1,14 @@
 <div>
     <main id="main" class="main-site">
-
+<style>
+    .regularprice{
+        font-weight: 300;
+        font-size: 13px!important;
+        color:#aaaaaa!important;
+        text-decoration: line-through;
+        padding-left: 10px;
+    }
+</style>
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -13,7 +21,7 @@
 
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="wrap-product-detail">
-                    <div class="detail-media">
+                   <div class="detail-media">
                         <div class="product-gallery">
                           <ul class="slides">
                             <li data-thumb="{{ asset('assets/images/products') }}/{{$product->image}}">
@@ -38,7 +46,14 @@
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
                         </div>
-                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
+                        <div class="wrap-price">
+                            @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                <span class="product-price">₹{{$product->sale_price}}</span>
+                                <del><span class="product-price regularprice">₹{{$product->regular_price}}</span></del>
+                            @else
+                                <span class="product-price">₹{{$product->regular_price}}</span>
+                            @endif
+                        </div>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{$product->stock_status}}</b></p>
                         </div>
@@ -52,7 +67,12 @@
                             </div>
                         </div>
                         <div class="wrap-butons">
-                            <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
+                            
+                            @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add to Cart</a>
+                            @else
+                                <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
+                            @endif
                             <div class="wrap-btn">
                                 <a href="#" class="btn btn-compare">Add Compare</a>
                                 <a href="#" class="btn btn-wishlist">Add Wishlist</a>

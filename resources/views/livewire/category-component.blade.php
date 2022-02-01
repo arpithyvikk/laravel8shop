@@ -60,21 +60,31 @@
                     <div class="row">
                         <ul class="product-list grid-products equal-container">
                             @foreach ($products as $product)
-                            <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                <div class="product product-style-3 equal-elem ">
-                                    <div class="product-thumnail">
-                                        <a href="{{route('product.details',['slug'=>$product->slug])}}" title="{{$product->name}}">
-                                            <figure><img src="{{ asset('assets/images/products') }}/{{$product->image}}" alt="{{$product->name}}"></figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="{{route('product.details',['slug'=>$product->slug])}}" class="product-name"><span>{{$product->name}}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
-                                        <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add To Cart</a>
-                                    </div>
+                        <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+                            <div class="product product-style-3 equal-elem ">
+                                <div class="product-thumnail">
+                                    @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now() )
+                                    <div class="group-flash">
+                                        <span class="flash-item sale-label">sale</span>
+                                    </div>                                    
+                                    @endif
+                                    <a href="{{route('product.details',['slug'=>$product->slug])}}" title="{{$product->name}}">
+                                        <figure><img src="{{ asset('assets/images/products') }}/{{$product->image}}" alt="{{$product->name}}"></figure>
+                                    </a>
                                 </div>
-                            </li>
-                            @endforeach
+                                <div class="product-info">
+                                    <a href="{{route('product.details',['slug'=>$product->slug])}}" class="product-name"><span>{{$product->name}}</span></a>
+                                    @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now() )
+                                    <div class="wrap-price"><ins><p class="product-price">₹{{$product->sale_price}}</p></ins><del><p class="product-price">₹{{$product->regular_price}}</p></del></div>                    
+                                    <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add To Cart</a>
+                                    @else
+                                    <div class="wrap-price"><span class="product-price">  ₹{{$product->regular_price}}</span></div>             
+                                    <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add To Cart</a>       
+                                    @endif                                    
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
                         </ul>
                     </div>
     
@@ -92,7 +102,7 @@
     
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
                     <div class="widget mercado-widget categories-widget">
-                        <h2 class="widget-title">All Categories</h2>
+                        <a href="{{url('/shop')}}"><h2 class="widget-title">All Categories</h2></a>
                         <div class="widget-content">
                             <ul class="list-category">
                                 @foreach ($categories as $category)
@@ -124,14 +134,10 @@
                     </div><!-- brand widget-->
     
                     <div class="widget mercado-widget filter-widget price-filter">
-                        <h2 class="widget-title">Price</h2>
+                        <h2 class="widget-title">Price <span class="text-danger"> ₹{{$min_price}} - ₹{{$max_price}}</span></h2>
                         <div class="widget-content">
-                            <div id="slider-range"></div>
-                            <p>
-                                <label for="amount">Price:</label>
-                                <input type="text" id="amount" readonly>
-                                <button class="filter-submit">Filter</button>
-                            </p>
+                            <div id="slider" wire:ignore></div>
+                            <br><br>
                         </div>
                     </div><!-- Price-->
     
@@ -236,3 +242,28 @@
     
     </main>
     </div>
+
+
+@push('scripts')
+<script>
+    var slider = document.getElementById('slider');
+    noUiSlider.create(slider,{
+        start:[1,10000],
+        connect:true,
+        range:{
+            'min':1,
+            'max':10000
+        },
+        pips:{
+            mode:'steps',
+            stepped:true,
+            density:4
+        }
+    });
+
+    slider.noUiSlider.on('update',function(value){
+        @this.set('min_price',value[0]);
+        @this.set('max_price',value[1]);
+    });
+</script>
+@endpush

@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Category;
 use App\Models\Product;
 use Carbon\Carbon;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
