@@ -25,12 +25,14 @@
                                             <option value="0">Inactive</option>
                                             <option value="1">Active</option>
                                         </select>
+                                        @error('status') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-md-4 control-label">Sale Date & Time</label>
                                     <div class="col-md-4">
-                                        <input type="text" wire:model="sale_date" id="sale-date" placeholder="YYYY/MM/DD H:M:S" class="form-control input-md" />
+                                        <input type="text" wire:model="sale_date" id="sale-date" placeholder="YYYY/MM/DD H:M:S" class="form-control input-md" title="Ex: 2022-01-01 01:05:00" />
+                                        @error('sale_date') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -17,8 +17,21 @@ class AdminSaleComponent extends Component
         $this->status = $sale->status;
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'sale_date'=> 'required',
+            'status'=> 'required|numeric'
+        ]);
+    }
     public function updateSale()
     {
+
+        $this->validate([
+            'sale_date'=> 'required',
+            'status'=> 'required|numeric'
+        ]);
+
         $sale = Sale::find(1);
         $sale->sale_date = $this->sale_date;
         $sale->status = $this->status;

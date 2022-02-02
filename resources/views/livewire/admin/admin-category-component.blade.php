@@ -35,9 +35,9 @@
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->slug}}</td>
                                         <td>
-                                           <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit fa-2x text-warning"></i></a>
+                                           <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}" class="admin-fa"><i class="fa fa-edit fa-2x text-warning"></i></a>
                                             &nbsp;
-                                           <a href="#" wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                           <a href="#" class="admin-fa" onclick="confirm('Are you sure, You want to delete this Category?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times fa-2x text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -45,13 +45,7 @@
                          </table>
                          <div class="wrap-pagination-info">
                             {{ $categories->links() }}
-                            {{-- <ul class="page-numbers">
-                                <li><span class="page-number-item current" >1</span></li>
-                                <li><a class="page-number-item" href="#" >2</a></li>
-                                <li><a class="page-number-item" href="#" >3</a></li>
-                                <li><a class="page-number-item next-link" href="#" >Next</a></li>
-                            </ul>
-                            <p class="result-count">Showing 1-8 of 12 result</p> --}}
+                            
                         </div>
                     </div>
                 </div>

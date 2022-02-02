@@ -25,24 +25,28 @@
                                     <label for="" class="col-md-4 control-label">Slider Title</label>
                                     <div class="col-md-4">
                                         <input type="text" wire:model="title" placeholder="Type Slider Title" class="form-control input-md" />
+                                        @error('title') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-md-4 control-label">Slider Subtitle</label>
                                     <div class="col-md-4">
                                         <input type="text" wire:model="subtitle" placeholder="Type Slider Subtitle" class="form-control input-md" />
+                                        @error('subtitle') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-md-4 control-label">Slider Price</label>
                                     <div class="col-md-4">
                                         <input type="text" wire:model="price" placeholder="Type Slider Price" class="form-control input-md" />
+                                        @error('price') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-md-4 control-label">Slider Link</label>
                                     <div class="col-md-4">
                                         <input type="text" wire:model="link" placeholder="Type Slider Link" class="form-control input-md" />
+                                        @error('link') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 
@@ -53,6 +57,7 @@
                                             <option value="1" {{$status == 1 ? 'selected' : ''}}>Active</option>
                                             <option value="0" {{$status == 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
+                                        @error('status') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 

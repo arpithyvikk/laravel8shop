@@ -5,7 +5,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
-use  App\Models\Category;
+use App\Models\Category;
 use App\Models\Sale;
 
 class CategoryComponent extends Component
@@ -22,7 +22,7 @@ class CategoryComponent extends Component
         $this->pagesize = 12;
         $this->category_slug = $category_slug;
         $this->min_price = 1;
-        $this->max_price = 10000;
+        $this->max_price = 100000;
     }
 
     public function render()

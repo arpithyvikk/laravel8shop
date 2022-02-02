@@ -1,6 +1,27 @@
 <div>
 <main id="main" class="main-site left-sidebar">
-
+<style type="text/css">
+    .product-wish{
+        position: absolute;
+        top: 10%;
+        left: 0;
+        z-index: 99;
+        right: 30px;
+        text-align: right;
+        padding-top: 0;
+    }
+    .product-wish .fa{
+        color: #cbcbcb;
+        
+    }
+    .product-wish .fa:hover{
+        color: red;
+        filter: contrast(1) brightness(1)!important;
+    }
+    .fill-heart{
+        color: red;
+    }
+</style>
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -57,6 +78,9 @@
 
                 <div class="row">
                     <ul class="product-list grid-products equal-container">
+                        @php
+                            $witems = Cart::instance('wishlist')->content()->pluck('id');
+                        @endphp
                         @foreach ($products as $product)
                         <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                             <div class="product product-style-3 equal-elem ">
@@ -77,8 +101,15 @@
                                     <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add To Cart</a>
                                     @else
                                     <div class="wrap-price"><span class="product-price">  ₹{{$product->regular_price}}</span></div>                    
-                                    <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add To Cart</a>
-                                    @endif                                    
+                                    <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add To Cart</a>
+                                    @endif   
+                                    <div class="product-wish">
+                                        @if($witems->contains($product->id))
+                                        <a href="#"><i class="fa fa-heart fill-heart fa-2x"></i></a>
+                                        @else
+                                        <a href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fa fa-heart fa-2x"></i></a>
+                                        @endif
+                                    </div>                                 
                                 </div>
                             </div>
                         </li>
@@ -245,11 +276,11 @@
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
-            start:[1,10000],
+            start:[1,100000],
             connect:true,
             range:{
                 'min':1,
-                'max':10000
+                'max':100000
             },
             pips:{
                 mode:'steps',

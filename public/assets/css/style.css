@@ -7241,10 +7241,10 @@ p.text-sm.text-gray-700.leading-5 {
     outline: none!important;
 }
 
-.fa{
+.admin-fa .fa{
     filter: contrast(1.3) brightness(1.5)!important;
 }
-.fa:hover{
+.admin-fa .fa:hover{
     filter: contrast(1) brightness(1)!important;
 }
 .noUi-connect {

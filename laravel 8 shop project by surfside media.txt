@@ -34,3 +34,11 @@ Date : 1 feb, 2022
 	part 25: admin make on sale timer () 
 	Some customization on project like: (change in all pages: 'sale label', 'product price', 'add to cart', 'cart price (1 bug product price is not change after sale is over)')
 	part 26: add price filter on shop and category page
+
+
+Date : 2 feb, 2022
+	part 27: add validation on admin side form
+	part 28: add confirm message for remove button
+	part 29: add text-editor on product add or edit page (WYSIWYG:'tinymce')
+	part 30: add product to wishlist
+	

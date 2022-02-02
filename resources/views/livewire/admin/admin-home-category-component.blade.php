@@ -20,12 +20,14 @@
                                         <option value="{{$category->id}}" {{ in_array($category->id, $selected_categories) ? 'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                                 </select>
+                                @error('selected_categories') <p class="text-danger">{{$message}}</p> @enderror
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">No of products</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" wire:model="numberofproducts"/>
+                                @error('numberofproducts') <p class="text-danger">{{$message}}</p> @enderror
                             </div>
                         </div>
                         <div class="form-group">

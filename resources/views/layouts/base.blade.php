@@ -54,7 +54,7 @@
 									@auth
 										@if (Auth::user()->utype === 'AMD')
 											<li class="menu-item menu-item-has-children parent" >
-												<a href="#">My Account{{session()->get('utpe');}} ({{Auth::user()->utype}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a href="#">My Account{{session()->get('utpe');}} ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a href="{{ route('admin.dashboard') }}">Dashboard</a>
@@ -120,7 +120,7 @@
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
 								<a href="#" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true" style="filter: contrast(1) brightness(1)!important;"></i>
+									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
 										<span class="index">0 item</span>
 										<span class="title">Wishlist</span>
@@ -129,10 +129,12 @@
 							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="{{url('cart')}}" class="link-direction">
-									<i class="fa fa-shopping-basket" aria-hidden="true" style="filter: contrast(1) brightness(1)!important;"></i>
+									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
 										@if(Cart::count() > 0)
 										<span class="index">{{Cart::count()}} items</span>
+										@else
+										<span class="index">0 items</span>
 										@endif
 										<span class="title">CART</span>
 									</div>
@@ -459,6 +461,9 @@
 	<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('assets/js/functions.js') }}"></script>
+
+	 <script src="https://cdn.tiny.cloud/1/dihg1a0dp3oxa39xkp6pnigj5clzd7qu50a8wofr8un7pwdu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js" integrity="sha512-6vo59lZMHB6GgEySnojEnfhnugP7LR4qm6akxptNOw/KW+i9o9MK4Gaia8f/eJATjAzCkgN3CWlIHWbVi2twpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" integrity="sha512-Y+0b10RbVUTf3Mi0EgJue0FoheNzentTMMIE2OreNbqnUPNbQj8zmjK3fs5D2WhQeGWIem2G2UkKjAL/bJ/UXQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
