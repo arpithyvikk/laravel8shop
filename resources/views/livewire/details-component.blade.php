@@ -18,7 +18,9 @@
             </ul>
         </div>
         <div class="row">
-
+            @php
+            $witems = Cart::instance('wishlist')->content()->pluck('id');
+        @endphp
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="wrap-product-detail">
                    <div class="detail-media">
@@ -69,13 +71,19 @@
                         <div class="wrap-butons">
                             
                             @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
-                                <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add to Cart</a>
-                            @else
-                                <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
+                                
+                                <a href="#" class="btn add-to-cart" wire:click="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">Add To Cart</a>
+                                @else
+                                <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
                             @endif
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                <br>
+                                <a href="#" class="detail-add-wish"><i class="fa fa-retweet"></i> Add Compare</a>
+                                @if($witems->contains($product->id))
+                                    <a href="#" class="detail-remove-wish fill-heart pull-right" title="Remove from Wishlist" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fa fa-heart"></i> Remove Wishlist</a>
+                                @else
+                                <a href="#" class="detail-add-wish pull-right" title="Add to Wishlist" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fa fa-heart"></i> Add Wishlist</a>                                
+                                @endif
                             </div>
                         </div>
                     </div>

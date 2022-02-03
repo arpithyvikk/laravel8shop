@@ -1,27 +1,6 @@
 <div>
 <main id="main" class="main-site left-sidebar">
-<style type="text/css">
-    .product-wish{
-        position: absolute;
-        top: 10%;
-        left: 0;
-        z-index: 99;
-        right: 30px;
-        text-align: right;
-        padding-top: 0;
-    }
-    .product-wish .fa{
-        color: #cbcbcb;
-        
-    }
-    .product-wish .fa:hover{
-        color: red;
-        filter: contrast(1) brightness(1)!important;
-    }
-    .fill-heart{
-        color: red;
-    }
-</style>
+
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -103,11 +82,11 @@
                                     <div class="wrap-price"><span class="product-price">  ₹{{$product->regular_price}}</span></div>                    
                                     <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add To Cart</a>
                                     @endif   
-                                    <div class="product-wish">
+                                    <div class="product-wish">  
                                         @if($witems->contains($product->id))
-                                        <a href="#"><i class="fa fa-heart fill-heart fa-2x"></i></a>
+                                        <a href="#" title="Remove from Wishlist" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fa fa-heart fill-heart fa-2x"></i></a>
                                         @else
-                                        <a href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fa fa-heart fa-2x"></i></a>
+                                        <a href="#" title="Add to Wishlist" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fa fa-heart fa-2x"></i></a>
                                         @endif
                                     </div>                                 
                                 </div>
@@ -119,13 +98,7 @@
 
                 <div class="wrap-pagination-info">
                     {{ $products->links() }}
-                    {{-- <ul class="page-numbers">
-                        <li><span class="page-number-item current" >1</span></li>
-                        <li><a class="page-number-item" href="#" >2</a></li>
-                        <li><a class="page-number-item" href="#" >3</a></li>
-                        <li><a class="page-number-item next-link" href="#" >Next</a></li>
-                    </ul>
-                    <p class="result-count">Showing 1-8 of 12 result</p> --}}
+                   
                 </div>
             </div><!--end main products area-->
 

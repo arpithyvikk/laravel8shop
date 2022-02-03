@@ -1,3 +1,5 @@
+****** Laravel8shop Project for practice
+
 Date : 18 jan, 2022
 	part 1 : project layout and setup using livewire and component
 	part 2 : create shop, cart and checout page using livewire and component(include template pages)
@@ -41,4 +43,13 @@ Date : 2 feb, 2022
 	part 28: add confirm message for remove button
 	part 29: add text-editor on product add or edit page (WYSIWYG:'tinymce')
 	part 30: add product to wishlist
+
+Date : 3 feb, 2022
+	part 31: auto refresh wishlist and cart counter
+	part 32: remove product from wishlist
+	part 33: display wishlist all products
+	part 34: move peoduct wishlist to cart
+
+
+	
 	
